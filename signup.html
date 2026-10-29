@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Вход | CODE80</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-content">
+      <h1 class="logo">CODE80|10</h1>
+      <nav class="main-nav" style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+        <a href="index.html" class="btn-primary">Главная</a>
+        <a href="biography.html" class="btn-primary">Биография</a>
+        <a href="songs.html" class="btn-primary">Песни</a>
+        <a href="gallery.html" class="btn-primary">Галерея</a>
+      </nav>
+
+      <button id="btn-login-header" class="btn-auth">Войти</button>
+      <a id="user-avatar-header" href="profile.html" class="avatar-link" style="display:none; margin-left: 15px;">
+        <img id="header-avatar" src="img/default-avatar.png" alt="Аватар" class="avatar">
+      </a>
+    </div>
+  </header>
+
+  <main class="container" style="margin-top: 3rem;">
+    <div class="auth-wrapper" style="display: flex; justify-content: center; align-items: center; min-height: 60vh;">
+      <!-- Форма входа -->
+      <div id="login-block" class="auth-container">
+        <h2>Вход</h2>
+        <form id="login-form">
+          <input type="email" id="login-email" placeholder="Почта" required />
+          <input type="password" id="login-password" placeholder="Пароль" required />
+          <button type="submit" class="btn-primary">Войти</button>
+          <p id="login-msg" class="auth-msg"></p>
+        </form>
+        <p style="margin-top:15px; font-size:14px; text-align: center;">
+          Нет аккаунта? <span id="switch-to-signup" class="auth-link">Зарегистрироваться</span>
+        </p>
+      </div>
+
+      <!-- Форма регистрации -->
+      <div id="signup-block" class="auth-container" style="display:none;">
+        <h2>Регистрация</h2>
+        <form id="signup-form">
+          <input type="email" id="reg-email" placeholder="Почта" required />
+          <input type="password" id="reg-password" placeholder="Пароль (мин. 6 символов)" required />
+          <input type="text" id="reg-username" placeholder="Ник для сайта (без @)" required />
+          <button type="submit" class="btn-primary">Зарегистрироваться</button>
+          <p id="signup-msg" class="auth-msg"></p>
+        </form>
+        <p style="margin-top:15px; font-size:14px; text-align: center;">
+          Уже есть аккаунт? <span id="switch-to-login" class="auth-link">Войти</span>
+        </p>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 Вики про CODE10/80. Фанатский проект.</p>
+  </footer>
+
+  <script src="js/supabase.min.js"></script>  <script src="js/supabase-client.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>

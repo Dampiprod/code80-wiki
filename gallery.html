@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <title>Галерея CODE10/80 | Вики</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+ <header class="site-header">
+    <div class="header-content">
+      <h1 class="logo">CODE80|10</h1>
+      <nav class="main-nav" style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+        <a href="index.html" class="btn-primary">Главная</a>
+        <a href="biography.html" class="btn-primary">Биография</a>
+        <a href="songs.html" class="btn-primary">Песни</a>
+        <a href="gallery.html" class="btn-primary">Галерея</a>
+      </nav>
+      <button id="btn-login-header" class="btn-auth">Войти</button>
+      <a id="user-avatar-header" href="profile.html" class="avatar-link" style="display:none; margin-left: 15px;">
+        <img id="header-avatar" src="img/default-avatar.png" alt="Аватар" class="avatar">
+      </a>
+    </div>
+  </header>
+
+  <main class="container">
+    <h2>Галерея</h2>
+
+    <section class="hero-about">
+      <p>Сейчас галерея находится в разработке. Мы планируем сделать мини‑форум, где после авторизации пользователи смогут выкладывать фото артиста. Все фото будут проходить ручную модерацию.</p>
+      <hr style="border: 0; border-top: 1px solid #333; margin: 1.5rem 0;">
+      <p><strong>Как попасть в галерею прямо сейчас:</strong></p>
+      <ul class="track-list" style="margin-bottom: 1rem;">
+        <li>Пришли фото в наш Telegram: <a href="https://t.me/ddddd" target="_blank" style="color:var(--primary);">t.me/ddddd</a></li>
+        <li>Или на почту: <a href="gmail:wikicode1080@gmail.com" style="color:var(--primary);">wikicode1080@gmail.com</a></li>
+      </ul>
+      <p>Мы вручную проверим фото, убедимся, что нет нарушений авторских прав, и добавим лучшие в галерею. В теме письма/сообщения укажи: «Фото для галереи CODE10/80».</p>
+
+      <a href="#" class="btn-primary btn-large" style="pointer-events:none; opacity:0.6;">Мини‑форум (в разработке)</a>
+    </section>
+
+    <section class="gallery-section">
+  <h2>Галерея от фанатов</h2>
+  <p class="text-muted">Лучшие фото, отобранные вручную. Источник указан под каждым снимком.</p>
+
+  <div class="gallery-grid">
+    <div class="gallery-item" data-title="CODE10 у машины в крутыхочках" data-desc="ERA" data-date="24.10.2026">
+      <img src="img/gallery/2.jpg" alt="CODE10 на концерте">
+      <div class="photo-meta">
+        <span class="author">Автор: @dddddd</span>
+        <span class="source">Источник: Telegram</span>
+      </div>
+    </div>
+
+    <div class="gallery-item"
+     data-title="CODE80 с фанкопопом"
+     data-desc="Стрим юрца"
+     data-date="24.10.2026">
+      <img src="img/gallery/3афтл.png" alt="CODE80 с фанкопопом">
+      <div class="photo-meta">
+        <span class="author">Автор: @ddddddddd</span>
+        <span class="source">Источник: Telegram</span>
+      </div>
+    </div>
+
+    <!-- Сюда добавляй новые карточки по той же схеме -->
+  </div>
+</section>
+
+<!-- Модальное окно (открывается по клику) -->
+<div id="lightbox" class="lightbox-overlay" style="display:none;">
+  <button id="lightbox-close" class="lightbox-close">&times;</button>
+  <div class="lightbox-content">
+    <img id="lightbox-img" src="" alt="">
+    <div class="lightbox-info">
+      <h3 id="lightbox-title"></h3>
+      <p id="lightbox-desc" class="text-muted"></p>
+      <div id="lightbox-date" class="lightbox-date-badge"></div>
+      <div class="lightbox-meta">
+        <span id="lightbox-author"></span>
+        <span id="lightbox-source"></span>
+        <span id="lightbox-date-badge">Дата публикации: 24.10.2026</span>
+      </div>
+    </div>
+  </div>
+</div>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 Вики про CODE10/80. Фанатский проект.</p>
+  </footer>
+  <script>
+  document.addEventListener('DOMContentLoaded', () => {
+  const items = document.querySelectorAll('.gallery-item');
+  const lightbox = document.getElementById('lightbox');
+  const closeBtn = document.getElementById('lightbox-close');
+  const imgEl = document.getElementById('lightbox-img');
+  const titleEl = document.getElementById('lightbox-title');
+  const dateEl = document.getElementById('lightbox-date');   // <-- новый элемент
+  const descEl = document.getElementById('lightbox-desc');
+  const authorEl = document.getElementById('lightbox-author');
+  const sourceEl = document.getElementById('lightbox-source');
+
+  items.forEach(item => {
+    item.addEventListener('click', () => {
+      const imgSrc = item.querySelector('img').src;
+      const title = item.getAttribute('data-title') || 'Без названия';
+      const date = item.getAttribute('data-date') || '';
+      const desc = item.getAttribute('data-desc') || '';
+      const author = item.querySelector('.author').textContent;
+      const source = item.querySelector('.source').textContent;
+
+            imgEl.src = imgSrc;
+            titleEl.textContent = title;
+
+            if (date) {
+              descEl.textContent = 'Дата публикации на сайте: ' + date;
+              dateEl.style.display = 'block';
+            } else {
+              dateEl.style.display = 'none';
+            }
+
+            descEl.textContent = desc;
+            authorEl.textContent = author;
+            sourceEl.textContent = source;
+
+            lightbox.style.display = 'flex';
+          });
+        });
+
+        closeBtn.addEventListener('click', () => {
+          lightbox.style.display = 'none';
+        });
+
+        lightbox.addEventListener('click', (e) => {
+          if (e.target === lightbox) {
+            lightbox.style.display = 'none';
+          }
+        });
+      });
+    </script>
+
+  <script src="js/supabase.min.js"></script>  <script src="js/supabase-client.js"></script>
+  <script src="js/common.js"></script>
+</body>
+</html>

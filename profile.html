@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Профиль | CODE80</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-content">
+      <h1 class="logo">CODE80|10</h1>
+      <nav class="main-nav">
+        <a href="index.html">Главная</a>
+        <a href="biography.html">Биография</a>
+        <a href="songs.html">Песни</a>
+        <a href="gallery.html">Галерея</a>
+      </nav>
+      <button id="btn-login-header" class="btn-auth">Войти</button>
+      <a id="user-avatar-header" href="profile.html" class="avatar-link" style="display:none;">
+        <img id="header-avatar" src="img/default-avatar.png" alt="Аватар" class="avatar">
+      </a>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1 style="color: var(--primary); margin: 2rem 0 1rem;">Профиль</h1>
+
+    <section id="profile-logged-in" hidden>
+      <div class="profile-head">
+        <img id="profile-avatar" src="img/default-avatar.png" alt="Аватар" class="profile-avatar">
+        <div>
+          <h2 id="profile-username">—</h2>
+          <p id="profile-bio" class="text-muted"></p>
+        </div>
+      </div>
+
+      <div class="avatar-upload">
+        <label for="avatar-input" class="btn">Сменить аватарку</label>
+        <input id="avatar-input" type="file" accept="image/*" hidden>
+        <span id="avatar-msg" class="auth-msg"></span>
+      </div>
+
+      <h3 style="color: #fff; margin-top: 2rem;">Мои публикации</h3>
+      <div id="profile-posts" class="publications-grid">
+        <p class="text-muted" style="grid-column:1/-1; text-align:center;">Загрузка...</p>
+      </div>
+
+      <button id="logout-btn" class="btn" style="margin-top: 2rem; width: 100%; padding: 10px;">Выйти</button>
+    </section>
+
+    <section id="profile-logged-out" hidden>
+      <p class="text-muted">Вы не вошли в аккаунт.</p>
+      <a href="index.html" class="btn-primary btn-large" style="margin-top:1rem;">Войти снова</a>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 Вики про CODE10/80. Фанатский проект.</p>
+  </footer>
+
+  <script src="js/supabase.min.js"></script>  <script src="js/supabase-client.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/profile.js"></script>
+</body>
+</html>
